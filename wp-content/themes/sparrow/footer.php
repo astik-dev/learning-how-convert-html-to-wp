@@ -1,19 +1,16 @@
    <!-- footer
    ================================================== -->
-   <footer id="footer">
+   <footer>
 
       <div class="row">
 
          <div class="twelve columns">
 
-            <ul class="footer-nav">
-					<li><a href="#">Home.</a></li>
-              	<li><a href="#">Blog.</a></li>
-              	<li><a href="#">Portfolio.</a></li>
-              	<li><a href="#">About.</a></li>
-              	<li><a href="#">Contact.</a></li>
-               <li><a href="#">Features.</a></li>
-			   </ul>
+            <?php wp_nav_menu(array(
+               "theme_location" => "footer", // какое меню подключается
+               "container" => null, // не создавать контейнер для списка меню
+               "menu_class" => "footer-nav",
+            )) ?>
 
             <ul class="footer-social">
                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -36,12 +33,6 @@
       </div>
 
    </footer> <!-- Footer End-->
-
-   <?php wp_nav_menu(array(
-      "theme_location" => "footer", // какое меню подключается
-      "container" => null, // не создавать контейнер для списка меню
-      "menu_class" => "footer-menu",
-   )) ?>
 
    <!-- Java Script
    ================================================== -->

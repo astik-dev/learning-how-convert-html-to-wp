@@ -1187,6 +1187,7 @@ footer .footer-nav li {
    margin-left: 20px;
 }
 footer .footer-nav a { color: #7B858E; }
+footer .footer-nav a:after { content: "." }
 footer .footer-nav a:hover { color: #313131; }
 
 /* social links */
