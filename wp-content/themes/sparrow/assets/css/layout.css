@@ -99,6 +99,9 @@ img { border-radius: 3px; }
 #sidebar .wp-block-categories-list li a:hover {
    color: #313131;
 }
+#sidebar .wp-block-categories-list li.current-cat a {
+   color: #313131;
+}
 
 /* tag cloud */
 #sidebar .wp-block-tag-cloud {
