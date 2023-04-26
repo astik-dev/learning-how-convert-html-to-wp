@@ -85,27 +85,27 @@ img { border-radius: 3px; }
 #sidebar .widget { margin-bottom: 24px; }
 
 /* Link list */
-#sidebar .link-list {
+#sidebar .wp-block-categories-list {
    margin: 12px 0 18px 0;
    padding: 0;
 }
-#sidebar .link-list li {
+#sidebar .wp-block-categories-list li {
    line-height: 24px;
 }
-#sidebar .link-list li a {
+#sidebar .wp-block-categories-list li a {
    border: none;
    color: #838C95;
 }
-#sidebar .link-list li a:hover {
+#sidebar .wp-block-categories-list li a:hover {
    color: #313131;
 }
 
 /* tag cloud */
-#sidebar .tagcloud {
+#sidebar .wp-block-tag-cloud {
    margin: 18px 0 18px -12px;
    padding: 0;
 }
-#sidebar .tagcloud a {
+#sidebar .wp-block-tag-cloud a {
    font: bold 12px/24px notosans-regular , sans-serif !important;
    display: inline-block;
    float: left;
@@ -126,7 +126,7 @@ img { border-radius: 3px; }
 
    border-radius: 3px;
 }
-#sidebar .tagcloud a:hover {
+#sidebar .wp-block-tag-cloud a:hover {
     color: #fff;
     background: #11ABB0;
 }
@@ -153,11 +153,15 @@ img { border-radius: 3px; }
 }
 
 /* search */
-#sidebar .widget_search form {
+#sidebar .wp-widget-group__inner-blocks form {
    /*position: relative; */
    margin: 24px 0 36px 0;
 }
-#sidebar .widget .text-search {
+#sidebar .wp-widget-group__inner-blocks form .wp-block-search__inside-wrapper  {
+   display: block;
+   max-width: none;
+}
+#sidebar .widget .wp-block-search__input {
 	padding-right: 40px;
 	border:none;
    width: 100%;
@@ -165,7 +169,7 @@ img { border-radius: 3px; }
 
    border-radius: 3px;
 }
-#sidebar .widget .submit-search {
+#sidebar .widget .wp-block-search__button {
 	background:url(../images/search-icon.png) no-repeat;
 	border:none;
 	cursor:pointer;

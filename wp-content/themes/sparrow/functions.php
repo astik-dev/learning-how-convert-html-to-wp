@@ -4,6 +4,7 @@
 add_action("wp_enqueue_scripts", "style_theme");
 add_action("wp_footer", "scripts_theme");
 add_action("after_setup_theme", "myMenu");
+add_action('widgets_init', 'register_my_widgets');
 
 
 
@@ -45,4 +46,21 @@ function scripts_theme() {
 function myMenu() {
 	register_nav_menu("top", "Меню в шапке");
 	register_nav_menu("footer", "Меню в подвале");
+}
+
+
+
+// регистрация виджетов
+function register_my_widgets(){
+
+	// регистрация сайдбара
+	register_sidebar( array(
+		'name'          => "Right Sidebar",
+		'id'            => "right-sidebar",
+		'description'   => 'Описание сайдбара',
+		'before_widget' => '<div class="widget %2$s">',
+		'after_widget'	=> "</div>\n",
+		'before_title'	=> '<h5 class="widgettitle">',
+		'after_title'	=> "</h5>\n",
+	) );
 }
