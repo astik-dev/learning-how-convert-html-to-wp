@@ -8,6 +8,22 @@ add_action('widgets_init', 'register_my_widgets');
 
 
 
+// добавление фильтров
+add_filter( "document_title_separator", "my_sep" );
+function my_sep( $sep ) {
+	$sep = " | ";
+	return $sep;
+}
+
+add_filter( "the_content", "test_content" );
+function test_content( $content ) {
+	$content .= "Спасибо за прочтение статьи!";
+	return $content;
+}
+
+
+
+
 // Функция подключения стилей
 function style_theme() {
 
