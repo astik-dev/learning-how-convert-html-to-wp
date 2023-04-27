@@ -9,6 +9,9 @@
          <div class="ten columns centered text-center">
             <h1>Single<span>.</span></h1>
 
+            <!-- Вывод своего action -->
+            <?php do_action("my_action"); ?>
+
             <p>Aenean condimentum, lacus sit amet luctus lobortis, dolores et quas molestias excepturi
             enim tellus ultrices elit, amet consequat enim elit noneas sit amet luctu. </p>
          </div>

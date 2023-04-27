@@ -6,6 +6,12 @@ add_action("wp_footer", "scripts_theme");
 add_action("after_setup_theme", "myMenu");
 add_action('widgets_init', 'register_my_widgets');
 
+// Добавление своего action
+add_action("my_action", "action_function");
+function action_function() {
+	echo "My action";
+}
+
 
 
 // добавление фильтров
