@@ -117,6 +117,9 @@ function myMenu() {
 	the_posts_pagination( array(
 		'end_size' => 2,
 	) );
+
+	// Добавляем шаблоны для записей 
+	add_theme_support( 'post-formats', array( 'video', 'aside' ) );
 }
 
 
