@@ -43,12 +43,13 @@ Template Post Type: portfolio
                   </div>
 
                   <ul class="portfolio-meta-list">
-						   <li><span>Date: </span>January 2014</li>
-						   <li><span>Client </span>Styleshout</li>
-						   <li><span>Skills: </span>Photoshop, Photography, Branding</li>
+						   <li><span>Date: </span><?php the_field("project-date") ?></li>
+						   <li><span>Client </span><?php the_field("customer") ?></li>
+						   <li><span>Skills: </span><?php the_field("skills") ?></li>
 				      </ul>
 
-                  <a class="button" href="http://behance.net">View project</a>
+                  <a class="button" href="<?php the_field('project-link') ?>">View project</a>
+                   
 
             </div> <!-- secondary End-->
 
@@ -56,9 +57,9 @@ Template Post Type: portfolio
 
                <div class="entry-media">
 
-                  <img src="images/portfolio/entries/geometric-backgrounds-01.jpg" alt="" />
+                  <img src="<?php the_field('image1') ?>" alt="Image <?php the_title(); ?>" />
 
-                  <img src="images/portfolio/entries/geometric-backgrounds-02.jpg" alt="" />
+                  <img src="<?php the_field('image2') ?>" alt="Image <?php the_title(); ?>" />
 
                </div>
 
@@ -73,8 +74,27 @@ Template Post Type: portfolio
          </section> <!-- end section -->
 
          <ul class="post-nav cf">
-			   <li class="prev"><a href="#" rel="prev"><strong>Previous Entry</strong> Duis Sed Odio Sit Amet Nibh Vulputate</a></li>
-				<li class="next"><a href="#" rel="next"><strong>Next Entry</strong> Morbi Elit Consequat Ipsum</a></li>
+
+         		<?php
+         		$next_post = get_next_post();
+         		
+         		if (!empty( $next_post )) {
+         			?>
+         			<li class="prev"><a href="<?php echo get_permalink( $next_post ); ?>" rel="prev"><strong>Previous Entry</strong><?php echo esc_html( $next_post->post_title ); ?></a></li>
+         			<?php
+         		}
+         		?>
+				
+				<?php 
+				$prev_post = get_previous_post();
+				
+				if (!empty( $prev_post )) {
+					?>
+					<li class="next"><a href="<?php echo get_permalink( $prev_post ); ?>" rel="next"><strong>Next Entry</strong><?php echo esc_html( $prev_post->post_title ); ?></a></li>
+					<?php
+				}
+				?>
+				
 			</ul>
 
       </div>
