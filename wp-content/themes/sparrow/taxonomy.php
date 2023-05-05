@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-	<!-- Page Title
+   <!-- Page Title
    ================================================== -->
    <div id="page-title">
 
@@ -27,70 +27,50 @@
 
             <div id="secondary"  class="four columns entry-details">
 
-                  <h1><?php the_title(); ?>.</h1>
+               <h1>Our Portfolio.</h1>
 
-                  <div class="entry-description">
+               <p class="lead">Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor,
+               nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh.</p>
 
-                     <?php the_content(); ?>
+               <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor,
+               nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate
+               cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a
+               ornare odio.</p>
 
-                  </div>
+            </div> <!-- Secondary End-->
 
-                  <ul class="portfolio-meta-list">
-						   <li><span>Date: </span><?php the_field("project-date") ?></li>
-						   <li><span>Client </span><?php the_field("customer") ?></li>
-						   <li><span>Skills: </span><?php the_terms( get_the_ID(), 'skills', '', ', ', '' ); ?></li>
-				      </ul>
+            <div id="primary" class="eight columns portfolio-list">
 
-                  <a class="button" href="<?php the_field('project-link') ?>">View project</a>
-                   
+               <div id="portfolio-wrapper" class="bgrid-halves cf">
 
-            </div> <!-- secondary End-->
+                  <?php if ( have_posts() ) { while ( have_posts() ) { the_post(); ?>
+                     
+                     <div class="columns portfolio-item">
+                        <div class="item-wrap">
+                           <a href="<?php the_permalink(); ?>">
+                              <?php the_post_thumbnail(); ?>
+                              <img alt="" src="images/portfolio/geometrics.jpg">
+                              <div class="overlay"></div>
+                              <div class="link-icon"><i class="fa fa-link"></i></div>
+                           </a>
+                           <div class="portfolio-item-meta">
+                              <h5><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
+                              <p><?php the_field("description-preview") ?></p>
+                           </div>
+                        </div>
+                     </div>
 
-            <div id="primary" class="eight columns">
-
-               <div class="entry-media">
-
-                  <img src="<?php the_field('image1') ?>" alt="Image <?php the_title(); ?>" />
-
-                  <img src="<?php the_field('image2') ?>" alt="Image <?php the_title(); ?>" />
+                  <?php } } else { ?>
+                     <p>Записей нет.</p>
+                  <?php } ?>
 
                </div>
-
-               <div class="entry-excerpt">
-
-				      <?php the_excerpt(); ?>
-
-				</div>
 
             </div> <!-- primary end-->
 
          </section> <!-- end section -->
 
-         <ul class="post-nav cf">
-
-         		<?php
-         		$next_post = get_next_post();
-         		
-         		if (!empty( $next_post )) {
-         			?>
-         			<li class="prev"><a href="<?php echo get_permalink( $next_post ); ?>" rel="prev"><strong>Previous Entry</strong><?php echo esc_html( $next_post->post_title ); ?></a></li>
-         			<?php
-         		}
-         		?>
-				
-				<?php 
-				$prev_post = get_previous_post();
-				
-				if (!empty( $prev_post )) {
-					?>
-					<li class="next"><a href="<?php echo get_permalink( $prev_post ); ?>" rel="next"><strong>Next Entry</strong><?php echo esc_html( $prev_post->post_title ); ?></a></li>
-					<?php
-				}
-				?>
-				
-			</ul>
-
-      </div>
+      </div> <!-- #page-content end-->
 
    </div> <!-- content End-->
 
