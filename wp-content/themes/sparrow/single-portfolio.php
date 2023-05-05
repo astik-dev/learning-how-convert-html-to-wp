@@ -1,10 +1,3 @@
-<?php 
-/*
-Template Name: Страница с работой портфолио
-Template Post Type: portfolio
-*/
-?>
-
 <?php get_header(); ?>
 
 	<!-- Page Title
