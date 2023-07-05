@@ -47,8 +47,10 @@ Template Post Type: post, page
 
               <div id="contact-form">
 
+                  <?php echo do_shortcode( '[contact-form-7 id="96" title="Контактная форма 1"]' ); ?>
+
                   <!-- form -->
-                  <form name="contactForm" id="contactForm" method="post" action="">
+                  <!--<form name="contactForm" id="contactForm" method="post" action="">
       					<fieldset>
 
                         <div class="half">
@@ -79,7 +81,7 @@ Template Post Type: post, page
                         </div>
 
       					</fieldset>
-      				</form> <!-- Form End -->
+      				</form>--> <!-- Form End -->
 
                   <!-- contact-warning -->
                   <div id="message-warning"></div>
