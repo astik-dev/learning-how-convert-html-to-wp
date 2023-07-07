@@ -1135,13 +1135,17 @@ ol.commentlist {
    min-width: none;
    margin-bottom: 12px;
 }
-#contact-form button.submit {
+#contact-form input[type="submit"].submit {
    text-transform: uppercase;
  	letter-spacing: 2px;
    margin-top: 24px;
+   width: auto !important;
 }
 #contact-form span.required {
 	color: #11ABB0;
+}
+#contact-form p {
+   margin: 0;
 }
 
 #message-warning,

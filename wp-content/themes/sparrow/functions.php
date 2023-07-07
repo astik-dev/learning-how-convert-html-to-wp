@@ -224,4 +224,15 @@ function register_my_widgets(){
 		'before_title'	=> '<h5 class="widgettitle">',
 		'after_title'	=> "</h5>\n",
 	) );
+
+	// регистрация сайдбара для Contacts
+	register_sidebar( array(
+		'name'          => "Right Contacts Sidebar",
+		'id'            => "right-contacts-sidebar",
+		'description'   => 'Специализированный сайдбар для страницы контактов',
+		'before_widget' => '<div class="widget %2$s">',
+		'after_widget'	=> "</div>\n",
+		'before_title'	=> '<h5 class="widgettitle">',
+		'after_title'	=> "</h5>\n",
+	) );
 }
