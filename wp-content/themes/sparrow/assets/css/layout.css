@@ -756,9 +756,10 @@ ul#nav ul li a {
    background: #E4E2E2;
    color: #544A4A;
 }
-#call-to-action p span {
+#call-to-action p strong {
 	font-family: 'notosans-bold', sans-serif; 
 	color: #DDD9D9;
+   font-size: inherit;
 }
 
 /* ------------------------------------------------------------------ */

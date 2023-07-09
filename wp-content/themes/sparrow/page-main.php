@@ -1,3 +1,9 @@
+<?php 
+/*
+Template Name: Главная страница
+*/
+?>
+
 <?php get_header(); ?>
 
    <!-- Intro Section
@@ -10,38 +16,42 @@
 		   <ul class="slides">
 
 			   <!-- Slide -->
-			   <li>
-				   <div class="row">
-					   <div class="twelve columns">
-						   <div class="slider-text">
-							   <h1>Free amazing site template<span>.</span></h1>
-							   <p>Aenean condimentum, lacus sit amet luctus lobortis, dolores et quas molestias excepturi
-                        enim tellus ultrices elit, amet consequat enim elit noneas sit amet luctu. lacus sit amet luctus lobortis, dolores et quas molestias excepturi
-                        enim tellus ultrices elit.</p>
-						   </div>
-                     <div class="slider-image">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/sliders/home-slider-image-01.png" alt="" />
-                     </div>
-					   </div>
-				   </div>
-			   </li>
+            <?php if( have_rows('slide_1') ): ?>
+            <?php while( have_rows('slide_1') ): the_row(); ?>
+   			   <li>
+   				   <div class="row">
+   					   <div class="twelve columns">
+   						   <div class="slider-text">
+   							   <h1><?php the_sub_field('slide_title'); ?><span>.</span></h1>
+   							   <p><?php the_sub_field('slide_description'); ?></p>
+   						   </div>
+                        <div class="slider-image">
+                           <img src="<?php the_sub_field('slide_image'); ?>" alt="" />
+                        </div>
+   					   </div>
+   				   </div>
+   			   </li>
+            <?php endwhile; ?>
+            <?php endif; ?>
 
             <!-- Slide -->
-			   <li>
-				   <div class="row">
-					   <div class="twelve columns">
-						   <div class="slider-text">
-							   <h1>Responsive + HTML5 + CSS3<span>.</span></h1>
-							   <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
-                        deleniti eos et accusamus. amet consequat enim elit noneas sit amet luctu. lacus sit amet luctus lobortis.
-                        Aenean condimentum, lacus sit amet luctus.</p>
-						   </div>
-                     <div class="slider-image">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/sliders/home-slider-image-02.png" alt="" />
+            <?php if( have_rows('slide_2') ): ?>
+            <?php while( have_rows('slide_2') ): the_row(); ?>
+   			   <li>
+                  <div class="row">
+                     <div class="twelve columns">
+                        <div class="slider-text">
+                           <h1><?php the_sub_field('slide_title'); ?><span>.</span></h1>
+                           <p><?php the_sub_field('slide_description'); ?></p>
+                        </div>
+                        <div class="slider-image">
+                           <img src="<?php the_sub_field('slide_image'); ?>" alt="" />
+                        </div>
                      </div>
-					   </div>
-				   </div>
-			   </li>
+                  </div>
+               </li>
+            <?php endwhile; ?>
+            <?php endif; ?>
 
 		   </ul>
 
@@ -57,37 +67,41 @@
 
          <div class="bgrid-quarters s-bgrid-halves">
 
-           <div class="columns">
-              <h2>Clean & Modern.</h2>
+           <?php if( have_rows('column_1') ): ?>
+           <?php while( have_rows('column_1') ): the_row(); ?>
+              <div class="columns">
+                 <h2><?php the_sub_field('column_title'); ?></h2>
+                 <p><?php the_sub_field('column_description'); ?></p>
+              </div>
+           <?php endwhile; ?>
+           <?php endif; ?>
 
-              <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-              Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-              </p>
-           </div>
+           <?php if( have_rows('column_2') ): ?>
+           <?php while( have_rows('column_2') ): the_row(); ?>
+              <div class="columns">
+                 <h2><?php the_sub_field('column_title'); ?></h2>
+                 <p><?php the_sub_field('column_description'); ?></p>
+              </div>
+           <?php endwhile; ?>
+           <?php endif; ?>
 
-           <div class="columns">
-              <h2>Responsive.</h2>
+           <?php if( have_rows('column_3') ): ?>
+           <?php while( have_rows('column_3') ): the_row(); ?>
+              <div class="columns s-first">
+                 <h2><?php the_sub_field('column_title'); ?></h2>
+                 <p><?php the_sub_field('column_description'); ?></p>
+              </div>
+           <?php endwhile; ?>
+           <?php endif; ?>
 
-              <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-              Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-              </p>
-           </div>
-
-           <div class="columns s-first">
-              <h2>HTML5 + CSS3.</h2>
-
-              <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-              Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-              </p>
-           </div>
-
-           <div class="columns">
-              <h2>Free of Charge.</h2>
-
-              <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-              Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-              </p>
-           </div>
+           <?php if( have_rows('column_4') ): ?>
+           <?php while( have_rows('column_4') ): the_row(); ?>
+              <div class="columns">
+                 <h2><?php the_sub_field('column_title'); ?></h2>
+                 <p><?php the_sub_field('column_description'); ?></p>
+              </div>
+           <?php endwhile; ?>
+           <?php endif; ?>
 
            </div>
 
@@ -102,14 +116,14 @@
       <div class="row">
 
          <div class="twelve columns align-center">
-            <h1>Some of our recent works.</h1>
+            <h1><?php the_field("section3_title") ?></h1>
          </div>
 
          <div id="portfolio-wrapper" class="bgrid-quarters s-bgrid-halves">
 
-            <?php  
+            <?php
             $my_posts = get_posts( array(
-               'numberposts' => 4,
+               'numberposts' => get_field("section3_numberposts"),
                'post_type'   => 'portfolio',
                'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
             ) );
@@ -162,7 +176,7 @@
 
       <div class="row">
          <div class="twelve columns align-center">
-            <h1>Our latest posts and rants.</h1>
+            <h1><?php the_field("section4_title") ?></h1>
          </div>
       </div>
 
@@ -172,7 +186,7 @@
 
          // параметры по умолчанию
          $my_posts = get_posts( array(
-            'numberposts' => 3,
+            'numberposts' => get_field("section4_numberposts"),
             'post_type'   => 'post',
             'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
          ) );
@@ -236,16 +250,14 @@
 
          <div class="eight columns offset-1">
 
-            <h1><a href="http://www.dreamhost.com/r.cgi?287326|STYLESHOUT">Host This Template on Dreamhost.</a></h1>
-            <p>Looking for an awesome and reliable webhosting? Try <a href="http://www.dreamhost.com/r.cgi?287326|STYLESHOUT"><span>DreamHost</span></a>.
-					Get <span>$50 off</span> when you sign up with the promocode <span>STYLESHOUT</span>. 
-					<!-- Simply type	the promocode in the box labeled “Promo Code” when placing your order. --></p>
+            <h1><a href="<?php the_field("section5_link"); ?>"><?php the_field("section5_title"); ?></a></h1>
+            <?php the_field("section5_description"); ?>
 
          </div>
 
          <div class="three columns action">
 
-            <a href="http://www.dreamhost.com/r.cgi?287326|STYLESHOUT" class="button">Sign Up Now</a>
+            <a href="<?php the_field("section5_link"); ?>" class="button"><?php the_field("section5_btn_text"); ?></a>
 
          </div>
 
@@ -272,16 +284,7 @@
                </span>
                <b><a href="#">2 Days Ago</a></b>
             </li>
-            <!--
-            <li>
-               <span>
-               This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
-               Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum
-               <a href="#">http://t.co/CGIrdxIlI3</a>
-               </span>
-               <b><a href="#">3 Days Ago</a></b>
-            </li>
-            -->
+            
          </ul>
 
          <p class="align-center"><a href="#" class="button">Follow us</a></p>
