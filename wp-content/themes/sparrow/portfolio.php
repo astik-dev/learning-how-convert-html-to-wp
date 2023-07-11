@@ -14,10 +14,9 @@ Template Name: Портфолио
       <div class="row">
 
          <div class="ten columns centered text-center">
-            <h1>Our Amazing Works<span>.</span></h1>
+            <h1><?php the_field("portfolio_sec1_title") ?><span>.</span></h1>
 
-            <p>Aenean condimentum, lacus sit amet luctus lobortis, dolores et quas molestias excepturi
-            enim tellus ultrices elit, amet consequat enim elit noneas sit amet luctu. </p>
+            <p><?php the_field("portfolio_sec1_description") ?></p>
          </div>
 
       </div>
@@ -34,15 +33,11 @@ Template Name: Портфолио
 
             <div id="secondary"  class="four columns entry-details">
 
-               <h1>Our Portfolio.</h1>
+               <h1><?php the_field("portfolio_sec2_title") ?></h1>
 
-               <p class="lead">Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor,
-               nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh.</p>
+               <p class="lead"><?php the_field("portfolio_sec2_description1") ?></p>
 
-               <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor,
-               nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate
-               cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a
-               ornare odio.</p>
+               <p><?php the_field("portfolio_sec2_description2") ?></p>
 
             </div> <!-- Secondary End-->
 
