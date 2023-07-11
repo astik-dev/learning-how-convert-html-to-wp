@@ -38,18 +38,32 @@
                "menu_class" => "footer-nav",
             )) ?>
 
-            <ul class="footer-social">
-               <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-               <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-               <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-               <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-               <li><a href="#"><i class="fa fa-skype"></i></a></li>
-               <li><a href="#"><i class="fa fa-rss"></i></a></li>
-            </ul>
+
+            <?php 
+               $menu_name = 'footer_socials';
+               $locations = get_nav_menu_locations();
+
+               if( $locations && isset( $locations[ $menu_name ] ) ){
+
+                  // получаем элементы меню
+                  $menu_items = wp_get_nav_menu_items( $locations[ $menu_name ] );
+
+                  // создаем список
+                  $menu_list = '<ul class="footer-social">';
+
+                  foreach ( (array) $menu_items as $key => $menu_item ){
+                     $menu_list .= '<li><a href="' . $menu_item->url . '"><i class="fa fa-' . $menu_item->title . '"></i></a></li>';
+                  }
+
+                  $menu_list .= '</ul>';
+
+                  echo $menu_list;
+               }
+            ?>
 
             <ul class="copyright">
-               <li>Copyright &copy; 2014 Sparrow</li> 
-               <li>Design by <a href="http://www.styleshout.com/">Styleshout</a></li>               
+               <li><?php echo get_theme_mod( 'footer_bottom_copyright' ); ?></li> 
+               <li><?php echo get_theme_mod( 'footer_bottom_design_text' ); ?><a href="<?php echo get_theme_mod( 'footer_bottom_design_link', '#' ); ?>"><?php echo get_theme_mod( 'footer_bottom_design_link_text' ); ?></a></li>               
             </ul>
 
          </div>

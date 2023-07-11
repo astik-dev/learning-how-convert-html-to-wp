@@ -178,6 +178,7 @@ function scripts_theme() {
 function myMenu() {
 	register_nav_menu("top", "Меню в шапке");
 	register_nav_menu("footer", "Меню в подвале");
+	register_nav_menu("footer_socials", "Меню соц. сетей в подвале");
 
 	// Превью для записей
 	add_theme_support( 'post-thumbnails', array( 'post', "portfolio" ) );
@@ -268,16 +269,16 @@ function mytheme_customize_register($wp_customize) {
         'priority' => 1,
     ));
 
-    $wp_customize->add_setting("header_logo", array(
-        'default' => '',
-        'sanitize_callback' => 'ic_sanitize_image',
-        'transport' => 'refresh',
-    ));
-    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, "header_logo", array(
-    	'label' => "Лого",
-    	'section' => 'header',
-    	'setting' => "header_logo",
-    )));
+	    $wp_customize->add_setting("header_logo", array(
+	        'default' => '',
+	        'sanitize_callback' => 'ic_sanitize_image',
+	        'transport' => 'refresh',
+	    ));
+	    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, "header_logo", array(
+	    	'label' => "Лого",
+	    	'section' => 'header',
+	    	'setting' => "header_logo",
+	    )));
 
 
 
@@ -287,81 +288,135 @@ function mytheme_customize_register($wp_customize) {
         'priority' => 2,
     ));
 
-    $wp_customize->add_section('footer_top', array(
-        'title' => 'Верхняя секция подвала',
-        'priority' => 1,
-        'panel' => 'footer',
-    ));
+	    $wp_customize->add_section('footer_top', array(
+	        'title' => 'Верхняя секция подвала',
+	        'priority' => 1,
+	        'panel' => 'footer',
+	    ));
 
-    $wp_customize->add_setting("footer_top_text", array(
-        'default' => '',
-        'sanitize_callback' => 'wp_filter_nohtml_kses',
-        'transport' => 'refresh',
-    ));
-    $wp_customize->add_control("footer_top_text", array(
-        'label' => 'Текст',
-        'type' => 'textarea',
-    	'section' => 'footer_top',
-    	'setting' => "footer_top_text",
-    ));
+		    $wp_customize->add_setting("footer_top_text", array(
+		        'default' => '',
+		        'sanitize_callback' => 'wp_filter_nohtml_kses',
+		        'transport' => 'refresh',
+		    ));
+		    $wp_customize->add_control("footer_top_text", array(
+		        'label' => 'Текст',
+		        'type' => 'textarea',
+		    	'section' => 'footer_top',
+		    	'setting' => "footer_top_text",
+		    ));
 
-    $wp_customize->add_setting("footer_top_text_link", array(
-        'default' => '',
-        'sanitize_callback' => 'esc_url_raw',
-        'transport' => 'refresh',
-    ));
-    $wp_customize->add_control("footer_top_text_link", array(
-        'label' => 'Ссылка в конце текста',
-        'type' => 'url',
-    	'section' => 'footer_top',
-    	'setting' => "footer_top_text_link",
-    ));
+		    $wp_customize->add_setting("footer_top_text_link", array(
+		        'default' => '',
+		        'sanitize_callback' => 'esc_url_raw',
+		        'transport' => 'refresh',
+		    ));
+		    $wp_customize->add_control("footer_top_text_link", array(
+		        'label' => 'Ссылка в конце текста',
+		        'type' => 'url',
+		    	'section' => 'footer_top',
+		    	'setting' => "footer_top_text_link",
+		    ));
 
-    $wp_customize->add_setting("footer_top_date_text", array(
-        'default' => '',
-        'sanitize_callback' => 'wp_filter_nohtml_kses',
-        'transport' => 'refresh',
-    ));
-    $wp_customize->add_control("footer_top_date_text", array(
-        'label' => 'Текст даты',
-        'type' => 'text',
-    	'section' => 'footer_top',
-    	'setting' => "footer_top_date_text",
-    ));
+		    $wp_customize->add_setting("footer_top_date_text", array(
+		        'default' => '',
+		        'sanitize_callback' => 'wp_filter_nohtml_kses',
+		        'transport' => 'refresh',
+		    ));
+		    $wp_customize->add_control("footer_top_date_text", array(
+		        'label' => 'Текст даты',
+		        'type' => 'text',
+		    	'section' => 'footer_top',
+		    	'setting' => "footer_top_date_text",
+		    ));
 
-    $wp_customize->add_setting("footer_top_date_link", array(
-        'default' => '',
-        'sanitize_callback' => 'esc_url_raw',
-        'transport' => 'refresh',
-    ));
-    $wp_customize->add_control("footer_top_date_link", array(
-        'label' => 'Ссылка даты',
-        'type' => 'url',
-    	'section' => 'footer_top',
-    	'setting' => "footer_top_date_link",
-    ));
+		    $wp_customize->add_setting("footer_top_date_link", array(
+		        'default' => '',
+		        'sanitize_callback' => 'esc_url_raw',
+		        'transport' => 'refresh',
+		    ));
+		    $wp_customize->add_control("footer_top_date_link", array(
+		        'label' => 'Ссылка даты',
+		        'type' => 'url',
+		    	'section' => 'footer_top',
+		    	'setting' => "footer_top_date_link",
+		    ));
 
-    $wp_customize->add_setting("footer_top_btn_text", array(
-        'default' => '',
-        'sanitize_callback' => 'wp_filter_nohtml_kses',
-        'transport' => 'refresh',
-    ));
-    $wp_customize->add_control("footer_top_btn_text", array(
-        'label' => 'Текст кнопки',
-        'type' => 'text',
-    	'section' => 'footer_top',
-    	'setting' => "footer_top_btn_text",
-    ));
+		    $wp_customize->add_setting("footer_top_btn_text", array(
+		        'default' => '',
+		        'sanitize_callback' => 'wp_filter_nohtml_kses',
+		        'transport' => 'refresh',
+		    ));
+		    $wp_customize->add_control("footer_top_btn_text", array(
+		        'label' => 'Текст кнопки',
+		        'type' => 'text',
+		    	'section' => 'footer_top',
+		    	'setting' => "footer_top_btn_text",
+		    ));
 
-    $wp_customize->add_setting("footer_top_btn_link", array(
-        'default' => '',
-        'sanitize_callback' => 'esc_url_raw',
-        'transport' => 'refresh',
-    ));
-    $wp_customize->add_control("footer_top_btn_link", array(
-        'label' => 'Ссылка кнопки',
-        'type' => 'url',
-    	'section' => 'footer_top',
-    	'setting' => "footer_top_btn_link",
-    ));
+		    $wp_customize->add_setting("footer_top_btn_link", array(
+		        'default' => '',
+		        'sanitize_callback' => 'esc_url_raw',
+		        'transport' => 'refresh',
+		    ));
+		    $wp_customize->add_control("footer_top_btn_link", array(
+		        'label' => 'Ссылка кнопки',
+		        'type' => 'url',
+		    	'section' => 'footer_top',
+		    	'setting' => "footer_top_btn_link",
+		    ));
+
+		$wp_customize->add_section('footer_bottom', array(
+	        'title' => 'Нижняя секция подвала',
+	        'priority' => 2,
+	        'panel' => 'footer',
+	    ));
+
+	    	$wp_customize->add_setting("footer_bottom_copyright", array(
+		        'default' => '',
+		        'sanitize_callback' => 'wp_filter_nohtml_kses',
+		        'transport' => 'refresh',
+		    ));
+		    $wp_customize->add_control("footer_bottom_copyright", array(
+		        'label' => 'Авторские права',
+		        'type' => 'text',
+		    	'section' => 'footer_bottom',
+		    	'setting' => "footer_bottom_copyright",
+		    ));
+
+		    $wp_customize->add_setting("footer_bottom_design_text", array(
+		        'default' => '',
+		        'sanitize_callback' => 'wp_filter_nohtml_kses',
+		        'transport' => 'refresh',
+		    ));
+		    $wp_customize->add_control("footer_bottom_design_text", array(
+		        'label' => 'Дизайн: текст',
+		        'type' => 'text',
+		    	'section' => 'footer_bottom',
+		    	'setting' => "footer_bottom_design_text",
+		    ));
+
+		    $wp_customize->add_setting("footer_bottom_design_link_text", array(
+		        'default' => '',
+		        'sanitize_callback' => 'wp_filter_nohtml_kses',
+		        'transport' => 'refresh',
+		    ));
+		    $wp_customize->add_control("footer_bottom_design_link_text", array(
+		        'label' => 'Дизайн: текст ссылки',
+		        'type' => 'text',
+		    	'section' => 'footer_bottom',
+		    	'setting' => "footer_bottom_design_link_text",
+		    ));
+
+		    $wp_customize->add_setting("footer_bottom_design_link", array(
+		        'default' => '',
+		        'sanitize_callback' => 'esc_url_raw',
+		        'transport' => 'refresh',
+		    ));
+		    $wp_customize->add_control("footer_bottom_design_link", array(
+		        'label' => 'Дизайн: ссылка',
+		        'type' => 'url',
+		    	'section' => 'footer_bottom',
+		    	'setting' => "footer_bottom_design_link",
+		    ));
 }
