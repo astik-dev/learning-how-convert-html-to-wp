@@ -11,15 +11,14 @@
          <ul id="twitter" class="align-center">
             <li>
                <span>
-               This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
-               Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum
-               <a href="#">http://t.co/CGIrdxIlI3</a>
+                  <?php echo get_theme_mod( 'footer_top_text' ); ?>
+                  <a href="<?php echo get_theme_mod( 'footer_top_text_link', '#' ); ?>"><?php echo get_theme_mod( 'footer_top_text_link' ); ?></a>
                </span>
-               <b><a href="#">2 Days Ago</a></b>
+               <b><a href="<?php echo get_theme_mod( 'footer_top_date_link', '#' ); ?>"><?php echo get_theme_mod( 'footer_top_date_text' ); ?></a></b>
             </li>
          </ul>
 
-         <p class="align-center"><a href="#" class="button">Follow us</a></p>
+         <p class="align-center"><a href="<?php echo get_theme_mod( 'footer_top_btn_link', '#' ); ?>" class="button"><?php echo get_theme_mod( 'footer_top_btn_text' ); ?></a></p>
 
       </div>
 
