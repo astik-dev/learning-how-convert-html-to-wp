@@ -14,10 +14,9 @@ Template Post Type: post, page
       <div class="row">
 
          <div class="ten columns centered text-center">
-            <h1>Get In Touch<span>.</span></h1>
+            <h1><?php the_field("contacts_sec1_title") ?><span>.</span></h1>
 
-            <p>Aenean condimentum, lacus sit amet luctus lobortis, dolores et quas molestias excepturi
-            enim tellus ultrices elit, amet consequat enim elit noneas sit amet luctu. </p>
+            <p><?php the_field("contacts_sec1_description") ?></p>
          </div>
 
       </div>
@@ -34,16 +33,11 @@ Template Post Type: post, page
 
             <section>
 
-              <h1>Hello. Let's talk.</h1>
+              <h1><?php the_field("contacts_sec2_title") ?></h1>
 
-              <p class="lead">Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor,
-              nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate
-              cursus a sit amet mauris. Morbi accumsan ipsum velit. </p>
+              <p class="lead"><?php the_field("contacts_sec2_text1") ?></p>
 
-              <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor,
-              nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate
-              cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a
-              ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. </p>
+              <p><?php the_field("contacts_sec2_text2") ?></p>
 
               <div id="contact-form">
 
