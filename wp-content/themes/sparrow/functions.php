@@ -236,3 +236,47 @@ function register_my_widgets(){
 		'after_title'	=> "</h5>\n",
 	) );
 }
+
+
+
+// Validation: image
+function ic_sanitize_image( $file, $setting ) {
+
+	$mimes = array(
+		'jpg|jpeg|jpe' => 'image/jpeg',
+		'gif'          => 'image/gif',
+		'png'          => 'image/png',
+		'bmp'          => 'image/bmp',
+		'tif|tiff'     => 'image/tiff',
+		'ico'          => 'image/x-icon'
+	);
+
+	//check file type from file name
+	$file_ext = wp_check_filetype( $file, $mimes );
+
+	//if file has a valid mime type return it, otherwise return default
+	return ( $file_ext['ext'] ? $file : $setting->default );
+}
+
+add_action('customize_register', 'mytheme_customize_register');
+
+function mytheme_customize_register($wp_customize) {
+    
+    // Header
+    $wp_customize->add_section('header', array(
+        'title' => 'Шапка',
+        'priority' => 1,
+    ));
+
+    $wp_customize->add_setting("header_logo", array(
+        'default' => '',
+        'sanitize_callback' => 'ic_sanitize_image',
+        'transport' => 'refresh',
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, "header_logo", array(
+    	'label' => "Лого",
+    	'section' => 'header',
+    	'setting' => "header_logo",
+    )));
+}

@@ -46,10 +46,10 @@
 
             <div class="logo">
                <a href="<?php echo home_url(); ?>">
-                  <img alt="" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png">
+                  <img alt="" src="<?php echo esc_url( get_theme_mod( 'header_logo' ) ); ?>">
                </a>
             </div>
-
+            
             <nav id="nav-wrap">
 
                <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
