@@ -24,10 +24,6 @@
    <!-- Script
    ================================================== -->
 	<script src="js/modernizr.js"></script>
-
-   <!-- Favicons
-	================================================== -->
-	<link rel="shortcut icon" href="favicon.ico" > 
 	
 	<!-- хук wp_head(); -->
 	<?php wp_head(); ?> 
