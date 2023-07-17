@@ -420,3 +420,21 @@ function mytheme_customize_register($wp_customize) {
 		    	'setting' => "footer_bottom_design_link",
 		    ));
 }
+
+
+// Делаем поиск только по post_type = post
+function SearchFilter($query) {
+  if ($query->is_search) {
+    $query->set('post_type', 'post');
+  }
+  return $query;
+}
+add_filter('pre_get_posts','SearchFilter');
+
+// Если нужно скрыть отдельный post_type
+/*add_filter('register_post_type_args', function($args, $post_type) {
+  if (!is_admin() && $post_type == 'page') {
+    $args['exclude_from_search'] = true;
+  }
+  return $args;
+}, 10, 2);*/
