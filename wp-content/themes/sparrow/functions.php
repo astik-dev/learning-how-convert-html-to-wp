@@ -151,6 +151,8 @@ function style_theme() {
 	wp_enqueue_style("fonts", get_template_directory_uri() . "/assets/css/fonts.css");
 	wp_enqueue_style("layout", get_template_directory_uri() . "/assets/css/layout.css");
 	wp_enqueue_style("media-queries", get_template_directory_uri() . "/assets/css/media-queries.css");
+
+	wp_enqueue_script("modernizr", get_template_directory_uri() . "/assets/js/modernizr.js");
 }
 
 
@@ -438,3 +440,7 @@ add_filter('pre_get_posts','SearchFilter');
   }
   return $args;
 }, 10, 2);*/
+
+
+// Добавляет тег <title> в  <head>
+add_theme_support( 'title-tag' );

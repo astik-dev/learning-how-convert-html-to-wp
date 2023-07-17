@@ -7,25 +7,14 @@
    <!--- Basic Page Needs
    ================================================== -->
    <meta charset="utf-8">
-	<title>Sparrow - Free Responsive HTML5/CSS3 Template</title>
 	<meta name="description" content="">
 	<meta name="author" content="">
 
    <!-- Mobile Specific Metas
    ================================================== -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-	<!-- CSS
-    ================================================== -->
-   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/default.css">
-	<link rel="stylesheet" href="css/layout.css">
-   <link rel="stylesheet" href="css/media-queries.css">
-
-   <!-- Script
-   ================================================== -->
-	<script src="js/modernizr.js"></script>
 	
-	<!-- хук wp_head(); -->
+	<!-- хук -->
 	<?php wp_head(); ?> 
 
 </head>
