@@ -264,30 +264,11 @@ function ic_sanitize_image( $file, $setting ) {
 add_action('customize_register', 'mytheme_customize_register');
 
 function mytheme_customize_register($wp_customize) {
-    
-    // Header
-    $wp_customize->add_section('header', array(
-        'title' => 'Шапка',
-        'priority' => 1,
-    ));
-
-	    $wp_customize->add_setting("header_logo", array(
-	        'default' => '',
-	        'sanitize_callback' => 'ic_sanitize_image',
-	        'transport' => 'refresh',
-	    ));
-	    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, "header_logo", array(
-	    	'label' => "Лого",
-	    	'section' => 'header',
-	    	'setting' => "header_logo",
-	    )));
-
-
 
     // Footer
     $wp_customize->add_panel('footer', array(
         'title' => 'Подвал',
-        'priority' => 2,
+        'priority' => 1,
     ));
 
 	    $wp_customize->add_section('footer_top', array(
@@ -444,3 +425,6 @@ add_filter('pre_get_posts','SearchFilter');
 
 // Добавляет тег <title> в  <head>
 add_theme_support( 'title-tag' );
+
+// Добавляет выбор лого сайта
+add_theme_support( 'custom-logo' );

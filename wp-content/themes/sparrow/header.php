@@ -30,9 +30,7 @@
          <div class="twelve columns">
 
             <div class="logo">
-               <a href="<?php echo home_url(); ?>">
-                  <img alt="" src="<?php echo esc_url( get_theme_mod( 'header_logo' ) ); ?>">
-               </a>
+               <?php the_custom_logo(); ?>
             </div>
             
             <nav id="nav-wrap">
