@@ -173,6 +173,9 @@ function scripts_theme() {
 	wp_enqueue_script("jquery.flexslider", get_template_directory_uri() . "/assets/js/jquery.flexslider.js");
 	wp_enqueue_script("doubletaptogo", get_template_directory_uri() . "/assets/js/doubletaptogo.js");
 	wp_enqueue_script("init", get_template_directory_uri() . "/assets/js/init.js");
+	wp_enqueue_script("loadmore", get_template_directory_uri() . "/assets/js/loadmore.js", array( "jquery" ));
+	// Передаем в loadmore.js динамический адрес обработчика AJAX
+	wp_localize_script('loadmore', 'myAjax', array( 'url' => admin_url( 'admin-ajax.php' ) ));
 }
 
 
@@ -428,3 +431,66 @@ add_theme_support( 'title-tag' );
 
 // Добавляет выбор лого сайта
 add_theme_support( 'custom-logo' );
+
+
+
+// Load more
+add_action( 'wp_ajax_loadmore', 'true_loadmore' );
+add_action( 'wp_ajax_nopriv_loadmore', 'true_loadmore' );
+ 
+function true_loadmore() {
+
+	$paged = ! empty( $_POST[ 'paged' ] ) ? $_POST[ 'paged' ] : 1;
+	$paged++;
+	$postsN = $_POST[ 'posts_per_page' ];
+
+	$args = array(
+		'paged' => $paged,
+		'post_status' => 'publish',
+		'posts_per_page' => $postsN,
+		'post_type' => 'portfolio'
+	);
+ 
+	query_posts( $args );
+ 
+ 	if( have_posts() ){
+		
+		while( have_posts() ) : the_post();?>
+	        <div class="columns portfolio-item">
+	         <div class="item-wrap">
+	            <a href="<?php the_permalink(); ?>">
+	               <?php the_post_thumbnail(); ?>
+	               <div class="overlay"></div>
+	               <div class="link-icon"><i class="fa fa-link"></i></div>
+	            </a>
+	            <div class="portfolio-item-meta">
+	               <h5><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
+	               
+	               <!-- Получаем и выводим первый навык -->
+	               <p>
+	                  <?php
+	                     $terms = get_the_terms( get_the_ID(), 'skills' );
+
+	                     if ( $terms && ! is_wp_error( $terms ) ) {
+	                         $first_term = reset( $terms );
+	                         echo esc_html( $first_term->name );
+	                     }
+	                  ?>
+	               </p>
+
+	            </div>
+	         </div>
+	      </div>
+	        
+	        <?php
+		endwhile;
+	
+	} else {
+	  	echo "No posts";
+	}
+
+	wp_reset_query();
+ 
+	die;
+ 
+}

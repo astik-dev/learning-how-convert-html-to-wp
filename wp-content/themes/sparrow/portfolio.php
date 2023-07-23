@@ -45,16 +45,19 @@ Template Name: Портфолио
 
                <div id="portfolio-wrapper" class="bgrid-halves cf">
 
-                  <?php  
-                  $my_posts = get_posts( array(
-                     'numberposts' => 6,
-                     'post_type'   => 'portfolio',
-                     'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+                  <?php
+
+                  // Количество постов для вывода на страницу
+                  $posts_N = 2;
+
+                  $my_posts = new WP_Query( array(
+                     'post_type' => 'portfolio',
+                     'posts_per_page' => $posts_N,
+                     'suppress_filters' => true,
                   ) );
 
-                  global $post;
-
-                  foreach( $my_posts as $post ){
+                  while( $my_posts->have_posts() ){
+                     $my_posts->the_post();
                   ?>
 
                   <div class="columns portfolio-item">
@@ -90,6 +93,22 @@ Template Name: Портфолио
                   ?>
 
                </div>
+
+
+               <?php // Вывод кнопки Load more при условии, что количество страниц больше чем 1
+               
+               $max_pages = $my_posts->max_num_pages;
+
+               if( 1 < $max_pages) {
+                  ?>
+
+                  <div style="text-align: center;">
+                     <button class="button" id="loadmore_portfolio" data-max_pages="<?= $max_pages ?>" data-paged="1" data-posts_n="<?= $posts_N ?>">Load more</button>
+                  </div>
+                  
+                  <?
+               }
+               ?>
 
             </div> <!-- primary end-->
 
