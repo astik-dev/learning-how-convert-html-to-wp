@@ -443,6 +443,9 @@ function true_loadmore() {
 	$paged = ! empty( $_POST[ 'paged' ] ) ? $_POST[ 'paged' ] : 1;
 	$paged++;
 	$postsN = $_POST[ 'posts_per_page' ];
+	
+	$tax = $_POST[ 'taxonomy' ];
+	$taxTerms = $_POST[ 'taxonomy_terms' ];
 
 	$args = array(
 		'paged' => $paged,
@@ -450,6 +453,18 @@ function true_loadmore() {
 		'posts_per_page' => $postsN,
 		'post_type' => 'portfolio'
 	);
+
+	// Если у нас есть значения таксономии, то добавляем в
+	// $args значение tax_query для вывода постов этой таксономии
+	if (!empty($tax) && !empty($taxTerms)) {
+		$args['tax_query'] = array(
+			array(
+				'taxonomy' => $tax,
+        'field' => 'term_id',
+        'terms' => $taxTerms,
+			),
+		);
+	}
  
 	query_posts( $args );
  

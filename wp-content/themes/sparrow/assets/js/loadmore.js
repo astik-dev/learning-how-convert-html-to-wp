@@ -12,6 +12,8 @@ jQuery(function($){
 				paged 	= btn.dataset.paged,
 				maxPages= btn.dataset.max_pages,
 				postsN 	= btn.dataset.posts_n,
+				taxonomy= btn.dataset.taxonomy,
+				taxonomyTerms = btn.dataset.taxonomy_terms,
 				text 	= btn.textContent;
 
 			$.ajax({
@@ -20,6 +22,8 @@ jQuery(function($){
 				data : {
 					paged : paged, // номер текущей страниц
 					posts_per_page : postsN,
+					taxonomy : taxonomy,
+					taxonomy_terms : taxonomyTerms,
 					action : 'loadmore' // экшен для wp_ajax_ и wp_ajax_nopriv_
 				},
 				beforeSend : function( xhr ) {
